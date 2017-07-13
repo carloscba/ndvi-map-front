@@ -1,0 +1,12 @@
+<form 
+  #loginForm = "ngForm"
+  [formGroup] = "form"
+  (ngSubmit) = "onSubmit(form.value)"
+>
+  <fieldset>
+    <legend>{{title}}</legend>
+    <input type="email" name="email" formControlName="email" />
+    <input type="password" name="password"  formControlName="password" />
+    <input type="submit" value="Login" [disabled]="!form.valid" />
+  </fieldset>
+</form>
