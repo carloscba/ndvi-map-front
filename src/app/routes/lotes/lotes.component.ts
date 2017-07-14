@@ -9,11 +9,14 @@ import { LotesService } from '../../services/lotes.service';
 })
 export class LotesComponent implements OnInit {
 
+  lotes = [];
+
   constructor(private lotesService: LotesService,) { }
 
   ngOnInit() {
     this.lotesService.get('asd').subscribe(
       (response) => {
+        this.lotes = response;
         console.log('lotes', response)
       },
       (error) => {

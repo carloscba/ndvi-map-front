@@ -9,7 +9,7 @@ export class LotesService {
   constructor(private http: Http) { }
 
   get(token){
-    return this.http.get(this.url+1).map(response => {
+    return this.http.get(this.url).map(response => {
       return response.json();
     });    
   }

@@ -16,6 +16,11 @@ import { IndexComponent } from './routes/index/index.component';
 import { LoginComponent } from './routes/login/login.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { LotesComponent } from './routes/lotes/lotes.component';
+import { LoteListComponent } from './components/lote-list/lote-list.component';
+import { LoteFormComponent } from './components/lote-form/lote-form.component';
+import { LotesNewComponent } from './routes/lotes/lotes-new.component';
+
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -24,13 +29,19 @@ import { LotesComponent } from './routes/lotes/lotes.component';
     IndexComponent,
     LoginComponent,
     DashboardComponent,
-    LotesComponent
+    LotesComponent,
+    LoteListComponent,
+    LoteFormComponent,
+    LotesNewComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpModule, 
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCvzWscengQ1ItOtYVWjldACDm7jBH3o7I'
+    })    
   ],
   providers: [
     LoginService,
