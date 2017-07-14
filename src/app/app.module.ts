@@ -9,15 +9,19 @@ import { FormLoginComponent } from './components/form-login/form-login.component
 import { routing } from './app.routing';
 
 import { LoginService } from './services/login.service';
+import { ProfilesService } from './services/profiles.service';
+
 import { IndexComponent } from './routes/index/index.component';
 import { LoginComponent } from './routes/login/login.component';
+import { DashboardComponent } from './routes/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormLoginComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import { LoginComponent } from './routes/login/login.component';
     routing
   ],
   providers: [
-    LoginService
+    LoginService,
+    ProfilesService
   ],
   bootstrap: [
     AppComponent

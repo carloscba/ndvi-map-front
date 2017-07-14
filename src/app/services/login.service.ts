@@ -5,16 +5,13 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class LoginService {
 
-  constructor(private http: Http) { 
+  constructor(private http: Http) {}
 
-  }
-
-  get(){
-    
-    return this.http.get('https://randomuser.me/api/').map(response => {
+  post(data){
+    const url = 'http://127.0.0.1:8000/api/login/';
+    return this.http.post(url, data).map(response => {
       return response.json();
     });
-
   }
 
 }
