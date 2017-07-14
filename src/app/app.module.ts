@@ -10,10 +10,12 @@ import { routing } from './app.routing';
 
 import { LoginService } from './services/login.service';
 import { ProfilesService } from './services/profiles.service';
+import { LotesService } from './services/lotes.service';
 
 import { IndexComponent } from './routes/index/index.component';
 import { LoginComponent } from './routes/login/login.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
+import { LotesComponent } from './routes/lotes/lotes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { DashboardComponent } from './routes/dashboard/dashboard.component';
     FormLoginComponent,
     IndexComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    LotesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { DashboardComponent } from './routes/dashboard/dashboard.component';
   ],
   providers: [
     LoginService,
-    ProfilesService
+    ProfilesService,
+    LotesService
   ],
   bootstrap: [
     AppComponent
