@@ -3,7 +3,7 @@
     
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="13" [mapTypeControl] = "true">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-      <agm-polygon #polygon [editable] = "true" [polyDraggable]="true" [paths] = "paths" (polyMouseUp)="onUpdatePolygon($event)"></agm-polygon>
+      <agm-polygon [editable] = "true" [polyDraggable]="true" [paths] = "paths" (pathChanged)="onPathChanged($event)"></agm-polygon>
     </agm-map>
 
     <input type="button" value="Poligono" />

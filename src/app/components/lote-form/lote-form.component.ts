@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AgmPolygon } from '@agm/core';
+import { AgmMap, AgmPolygon } from 'angular-google-maps-src/src/core';
+import { PolygonManager } from 'angular-google-maps-src/src/core/services/managers/polygon-manager'
 
 @Component({
   selector: 'app-lote-form',
@@ -8,11 +9,15 @@ import { AgmPolygon } from '@agm/core';
   styleUrls: ['./lote-form.component.css']
 })
 export class LoteFormComponent implements OnInit {
-  @ViewChild(AgmPolygon) polygon: any;
+  @ViewChild(PolygonManager) polygon: any;
+  @ViewChild(AgmPolygon) agmPolygon: any;
+  @ViewChild(AgmMap) map: any;
 
   title: string = 'My first AGM project';
   lat: number = -31.464982360950497;
   lng: number = -64.4309949874878;
+
+  pathChanged: EventEmitter<any> = new EventEmitter<any>();
 
   paths = [ 
     { lat: -31.464982360950497, lng: -64.4309949874878 },
@@ -23,23 +28,25 @@ export class LoteFormComponent implements OnInit {
   constructor(
     //private polygon: AgmPolygon
   ) { }
-  
-  onUpdatePolygon($event){
-    /*
-    this.polygon.getPaths().then((x: any[]) => {
-      x.forEach(y => {
-        console.log('-');
-        y.forEach(z => console.log(z.lat(), z.lng()));
-      });
-    });
-    */    
-    
-    console.log('polygon', this.polygon)
-    console.log('$event', $event);
+
+
+  onPathChanged($event){
+    console.log('$event', $event.then((e)=>{
+      
+      e.map((item, index) => {
+        console.log(item.lat(), item.lng());
+      })
+
+    }));
   }
-  
+
   ngOnInit() {
     
   }
+  getPolygonPath(): Promise<Array<any>> {
+    
+    return this.polygon.getPolygonPath();
+  
+  }  
 
 }

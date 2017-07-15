@@ -20,7 +20,7 @@ import { LoteListComponent } from './components/lote-list/lote-list.component';
 import { LoteFormComponent } from './components/lote-form/lote-form.component';
 import { LotesNewComponent } from './routes/lotes/lotes-new.component';
 
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from 'angular-google-maps-src/src/core';
 
 @NgModule({
   declarations: [
