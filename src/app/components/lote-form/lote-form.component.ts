@@ -7,7 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./lote-form.component.css']
 })
 export class LoteFormComponent implements OnInit {
-
+  form;
   title: string = 'My first AGM project';
   lat: number = -31.464982360950497;
   lng: number = -64.4309949874878;
@@ -33,6 +33,14 @@ export class LoteFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      name : new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+      description : new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+    });   
     
   } 
 
